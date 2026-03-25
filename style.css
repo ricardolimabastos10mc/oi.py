@@ -1,0 +1,33 @@
+body {
+    font-family: Arial,  sans-serif; /* Font family */
+    font-size: 11px; /* O tamanho da fonte principal<p></p> tag  */
+    background-color: #000000; /* A cor do plano de fundo da página */
+    color: #ffffff; /* A cor do texto */
+    border:13px solid #9e0000f3; /* A borda da página */
+    text-decoration: underline;
+    text-decoration-color: rgb(190, 0, 0)
+}
+h1 {
+    
+    color: #f1b7b7; /* A cor do cabeçalho */
+    font-size: 24px; /* A cor da fonte do cabeçalho */
+    font-family: Georgia, serif; /* A font usada no cabeçalho*/
+    animation: color-change 3s infinite;
+}
+@keyframes color-change {
+  0%   { color: blue; }
+  50%  { color: red; }
+  100% { color: blue; }
+}
+
+h1:hover {
+    transform: scale(0.9);
+    transition: 0.3s;
+}
+
+
+h2 {
+    color: #8f0000; /* A cor do subcabeçalho */
+    font-size: 18px; /* O tamanho da fonte do subcabeçalho */
+    font-family: 'Times New Roman', serif; /* A font usada no subcabeçalho */
+}
