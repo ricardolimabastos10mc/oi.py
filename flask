@@ -1,0 +1,44 @@
+from requests import request
+
+from flask import Flask
+import random
+
+app = Flask(__name__)
+
+fatos_aleatorios = [
+    "Seu cérebro pesa cerca de 1,3 kg, mas usa ~20% da energia do corpo 😳",
+    "Você pisca em média 15–20 vezes por minuto (sem perceber)",
+    "O corpo humano tem mais bactérias do que células humanas 🦠",
+    "Seus ossos são mais fortes que concreto (proporcionalmente)",
+    "Você “cresce” cerca de 1 cm enquanto dorme (coluna relaxa)",
+    "Impressões digitais são únicas — nem gêmeos idênticos têm iguais"
+]   
+
+
+
+@app.route("/")
+def hello_world():
+    return "<h1> Pagina inicial </h1>" + "<a href='/random_fact'>Veja um fato aleatório!</a>"
+
+@app.route("/random_fact")
+def random_fact():
+    fato = random.choice(fatos_aleatorios)
+    return f"<h1>Fato aleatório: {fato}</h1>" + "<a href='/random_fact_mengao'>Veja um fato aleatório do Mengão!</a>"
+
+@app.route("/random_fact_mengao") 
+def random_fact_mengao():
+    fatos_mengao = [
+        "O Flamengo é o clube mais popular do Brasil, com milhões de torcedores apaixonados.",
+        "O Flamengo foi fundado em 1895 e tem uma rica história no futebol brasileiro.",
+        "O estádio do Flamengo é o Maracanã, um dos mais icônicos do mundo.",
+        "O Flamengo já conquistou diversos títulos nacionais e internacionais, incluindo a Copa Libertadores da América.",
+        "O Flamengo é conhecido por sua torcida vibrante e apaixonada, que lota os estádios para apoiar o time."
+    ]
+    fato_mengao = random.choice(fatos_mengao)
+    img = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKuzdTg-G3D2L03NutjtzF6Zq8ZR7AprKXiA&s"
+    
+    return f"<h1>Fato aleatório do Mengão: {fato_mengao}</h1>" + f"<img src='{img}' alt='Imagem do Mengão'>"
+    
+    
+app.run(debug=True)
+
